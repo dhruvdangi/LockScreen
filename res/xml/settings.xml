@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:ads="http://schemas.android.com/apk/res-auto"   >
+
+    <SwitchPreference
+             android:disableDependentsState="false" 
+             android:title="Enable/Disable"
+             android:summaryOff="Disabled"
+             android:summaryOn="Enabled"
+             android:key="Enable/Disable"/>
+    
+     <PreferenceCategory android:title="Settings" >
+         <Preference 
+            android:title="Password" 
+            android:summary="Change Password" >
+    		<intent android:action="dhruv.action.ChangePassword"  />
+		</Preference>
+		
+        <Preference 
+            android:title="Wallpaper" 
+            android:summary="Change Lockscreen Wallpaper" >
+    		<intent android:action="dhruv.action.Wallpaper"  />
+		</Preference>
+		
+		<Preference 
+            android:title="Rate Lockscreen" 
+            android:summary="Liked our App? Don't forget to Rate it." >
+    		<intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://play.google.com/store/apps/details?id=com.dhruv.lockscreen" />
+		</Preference>
+		<Preference 
+            android:title="Help" 
+            android:summary="Help" >
+    		<intent android:action="dhruv.action.Help"  />
+		</Preference>
+     </PreferenceCategory>
+</PreferenceScreen>

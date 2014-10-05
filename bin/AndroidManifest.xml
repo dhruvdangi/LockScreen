@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dhruv.lockscreen"
+    android:versionCode="4"
+    android:versionName="1.0.2" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+     <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.dhruv.lockscreen.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
+   			android:screenOrientation="portrait"
+   			android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+   			>
+            
+            <intent-filter>
+                   <action android:name="android.intent.action.MAIN" />
+                   <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter> 
+        </activity>
+
+        <service android:name="com.dhruv.lockscreen.LockScreenService" >
+            
+        </service>
+
+        <receiver android:name="com.dhruv.lockscreen.LockScreenService$lockScreenReceiver" >
+            <intent-filter
+                android:enabled="true"
+                android:exported="false" >
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.dhruv.lockscreen.LockScreen"
+            android:label="@string/title_activity_LockScreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.dhruv.lockscreen.Wallpaper"
+            android:label="Wallpapers"
+             >
+            <intent-filter>
+                <action android:name="dhruv.action.Wallpaper"/> 
+                <category android:name="android.intent.category.DEFAULT" />
+               
+            </intent-filter>
+        </activity>
+         
+         <activity
+            android:name="com.dhruv.lockscreen.TestSettings"
+            android:label="Settings"
+             >
+            
+        </activity>
+        <activity
+            android:name="com.dhruv.lockscreen.Help"
+            android:label="@string/title_activity_help" 
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="dhruv.action.Help"/> 
+                <category android:name="android.intent.category.DEFAULT" />
+               
+            </intent-filter>
+        </activity>
+		<activity
+            android:name="com.dhruv.lockscreen.ChangePassword"
+            android:label="Change password">
+            <intent-filter>
+                <action android:name="dhruv.action.ChangePassword"/> 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		<meta-data android:name="com.google.android.gms.version"
+               android:value="@integer/google_play_services_version"/>
+		<activity android:name="com.google.android.gms.ads.AdActivity"
+             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+ 
+    </application>
+
+</manifest>
